@@ -1,7 +1,9 @@
 import React from "react"
 
-export default function Navbar() {
+const Navbar: React.FC = () => {
     return (
         <div>Winwin-assets</div>
     )
 }
+
+export default Navbar

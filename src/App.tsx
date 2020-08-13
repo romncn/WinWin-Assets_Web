@@ -1,8 +1,8 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Layout from "./components/components/Layout";
 
-function App() {
+const App: React.FC = () => {
   return (
     <div className="App">
       <Layout>
@@ -24,6 +24,6 @@ function App() {
       </Layout>
     </div>
   );
-}
+};
 
 export default App;
