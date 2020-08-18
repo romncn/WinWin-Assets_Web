@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Assets from "../data/Assets.json";
 
+import Assets from "../data/Assets.json";
 
 //components
 import Detail from "../components/AssetDetail/Detail";
+import ContactAdmin from "../components/AssetDetail/ContactAdmin";
 
 export interface IAsset {
   id: string;
@@ -36,7 +37,7 @@ const AssetDetail: React.SFC = () => {
     } else {
       setAsset(asset[0]);
     }
-  },[]);
+  }, []);
 
   return (
     <div>
@@ -46,6 +47,9 @@ const AssetDetail: React.SFC = () => {
         location={asset.location}
         detail={asset.detail}
       />
+      <div style={{paddingTop:"50px"}}>
+        <ContactAdmin />
+      </div>
     </div>
   );
 };
