@@ -1,9 +1,11 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Layout from "./components/components/Layout";
+import 'antd/dist/antd.css';
 
 //Page
 import AssetDetail from "./views/AssetDetail"
+import Home from "./views/Home";
 
 const App: React.FC = () => {
   return (
@@ -19,7 +21,7 @@ const App: React.FC = () => {
               <AssetDetail />
             </Route>
             <Route path="/">
-              <div>Home</div>
+              <Home />
             </Route>
           </Switch>
         </Router>
