@@ -2,8 +2,9 @@ import baseStyled, { ThemedStyledInterface } from 'styled-components';
 
 export const theme = {
     color: {
-        base: "#843A39",
-        sub: "#404143",
+        basecolor: "#843A39",
+        subcolor: "#404143",
+        subfont: "#424345",
     },
 };
 
