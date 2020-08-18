@@ -1,23 +1,52 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { styled } from "../style/Theme";
+import Assets from "../data/Assets.json";
 
-const Text = styled.span`
-  color: ${(props) => props.theme.color.base};
-`;
 
-const TextSub = styled.span`
-  color: ${(props) => props.theme.color.sub};
-`;
+//components
+import Detail from "../components/AssetDetail/Detail";
 
-const AssetDetail: React.SFC = (props) => {
+export interface IAsset {
+  id: string;
+  name: string;
+  type: Array<string>;
+  location: string;
+  detail: Array<{
+    name: string;
+    size: number;
+  }>;
+  image: Array<string>;
+}
+
+const AssetDetail: React.SFC = () => {
+  const [asset, setAsset] = useState<IAsset>({
+    id: "",
+    name: "",
+    type: [""],
+    location: "",
+    detail: [{ name: "", size: 0 }],
+    image: [""],
+  });
+
   let { name } = useParams();
-  //   console.log("name", (name+"").replace("_", " "));
+
+  useEffect(() => {
+    let asset = Assets.filter((asset) => asset.id === name);
+    if (asset[0] === undefined) {
+    } else {
+      setAsset(asset[0]);
+    }
+  },[]);
+
   return (
-    <>
-      <Text>Asset Detail</Text>
-      <TextSub>SSSSS</TextSub>
-    </>
+    <div>
+      <Detail
+        name={asset.name}
+        type={asset.type}
+        location={asset.location}
+        detail={asset.detail}
+      />
+    </div>
   );
 };
 
