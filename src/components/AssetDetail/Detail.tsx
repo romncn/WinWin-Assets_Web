@@ -5,8 +5,12 @@ import { Container } from "../components/Grid";
 
 const Icon = styled.span`
   color: black;
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
+  @media screen and (min-width: 992px) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 `;
 
 type AssetDetailProps = {

@@ -6,7 +6,7 @@ import Assets from "../data/Assets.json";
 //components
 import Detail from "../components/AssetDetail/Detail";
 import ContactAdmin from "../components/AssetDetail/ContactAdmin";
-import AssetsSuggest from "../components/AssetDetail/AssetsSuggest"
+import AssetsSuggest from "../components/AssetDetail/AssetsSuggest";
 
 export interface IAsset {
   id: string;
@@ -40,22 +40,37 @@ const AssetDetail: React.SFC = () => {
     }
   }, []);
 
-  return (
-    <div>
-      <Detail
-        name={asset.name}
-        type={asset.type}
-        location={asset.location}
-        detail={asset.detail}
-      />
-      <div style={{paddingTop:"50px"}}>
-        <ContactAdmin />
+  const nextAsset = () => {
+    setAsset({
+      id: "",
+      name: "",
+      type: [""],
+      location: "",
+      detail: [{ name: "", size: 0 }],
+      image: [""],
+    });
+  };
+
+  if (asset.id === "") {
+    return <div></div>;
+  } else {
+    return (
+      <div>
+        <Detail
+          name={asset.name}
+          type={asset.type}
+          location={asset.location}
+          detail={asset.detail}
+        />
+        <div style={{ paddingTop: "50px" }}>
+          <ContactAdmin />
+        </div>
+        <div style={{ paddingTop: "50px" }}>
+          <AssetsSuggest assets={Assets} id={asset.id} nextAsset={nextAsset} />
+        </div>
       </div>
-      <div style={{paddingTop:"50px"}}>
-        <AssetsSuggest />
-      </div>
-    </div>
-  );
+    );
+  }
 };
 
 export default AssetDetail;

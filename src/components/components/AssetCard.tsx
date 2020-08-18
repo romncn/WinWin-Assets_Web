@@ -23,10 +23,10 @@ const ImageCover = styled.img`
 
 const CardHover = styled.div`
   position: absolute;
-  z-index: 2;
+  z-index: 1;
   top: 0px;
-  width: 100%;
-  min-height: 374px;
+  width: 96.5%;
+  height: 100%x;
   padding: 0px 10px 0px 10px;
   border-radius: 8px;
   cursor: pointer;
