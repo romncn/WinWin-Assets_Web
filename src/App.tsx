@@ -1,10 +1,11 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Layout from "./components/components/Layout";
-import 'antd/dist/antd.css';
+import "antd/dist/antd.css";
+import ScrollToTop from "./ScrollToTop";
 
 //Page
-import AssetDetail from "./views/AssetDetail"
+import AssetDetail from "./views/AssetDetail";
 import Home from "./views/Home";
 
 const App: React.FC = () => {
@@ -12,6 +13,7 @@ const App: React.FC = () => {
     <div className="App">
       <Layout>
         <Router>
+          <ScrollToTop />
           <Switch>
             <Route path="/about">
               {/* <About /> */}
