@@ -8,7 +8,8 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
-    font-size: 14px
+    font-size: 14px;
+    font-family: 'Kanit', sans-serif;
   }
   h1 {
     font-size: 40px
