@@ -14,23 +14,18 @@ const GlobalStyle = createGlobalStyle`
   }
   h1 {
     font-size: 40px;
-    font-weight:100;
   }
   h2 {
     font-size: 32px;
-    font-weight:100;
   }
   h3 {
     font-size: 24px;   
-    font-weight:100;
   }
   h4 {
     font-size: 22px;
-    font-weight:100;
   }
   h5 {
     font-size: 16px;
-    font-weight:100;
   }
 `;
 
