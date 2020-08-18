@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from "react";
 import styled from "styled-components";
 import { EnvironmentFilled, EditFilled } from "@ant-design/icons";
+import { Container } from "../components/Grid";
 
 const Icon = styled.span`
   color: black;
@@ -26,34 +27,41 @@ const Detail: FunctionComponent<AssetDetailProps> = ({
 }) => {
   return (
     <div>
-      <h1>
-        <b>{name}</b>
-      </h1>
-      <h2>
-        {type.map((t, key) => {
-          return <span>{t}{key === type.length-1 ? "": ", "}</span>;
-        })}
-      </h2>
-      <div>
-        <h3>
-          <Icon>
-            <EnvironmentFilled />
-          </Icon>
-          {location}
-        </h3>
-        <h3>
-          <Icon>
-            <EditFilled />
-          </Icon>
-          {detail.map((d, key) => {
+      <Container>
+        <h1>
+          <b>{name}</b>
+        </h1>
+        <h2>
+          {type.map((t, key) => {
             return (
               <span>
-                {d.name} {d.size} ตรว. {key === detail.length - 1 ? "" : ", "}
+                {t}
+                {key === type.length - 1 ? "" : ", "}
               </span>
             );
           })}
-        </h3>
-      </div>
+        </h2>
+        <div>
+          <h3>
+            <Icon>
+              <EnvironmentFilled />
+            </Icon>
+            {location}
+          </h3>
+          <h3>
+            <Icon>
+              <EditFilled />
+            </Icon>
+            {detail.map((d, key) => {
+              return (
+                <span>
+                  {d.name} {d.size} ตรว. {key === detail.length - 1 ? "" : ", "}
+                </span>
+              );
+            })}
+          </h3>
+        </div>
+      </Container>
     </div>
   );
 };
