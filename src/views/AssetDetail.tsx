@@ -63,7 +63,7 @@ const AssetDetail: React.SFC = () => {
           detail={asset.detail}
         />
         <div style={{ paddingTop: "50px" }}>
-          <ContactAdmin />
+          <ContactAdmin assetname={asset.name} />
         </div>
         <div style={{ paddingTop: "50px" }}>
           <AssetsSuggest assets={Assets} id={asset.id} nextAsset={nextAsset} />

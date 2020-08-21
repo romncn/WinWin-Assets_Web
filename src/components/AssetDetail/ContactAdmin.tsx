@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { styled } from "../../style/Theme";
+import emailjs from "emailjs-com";
 import { Row, Col, Form, Input, Button, Space } from "antd";
 import { CommentOutlined } from "@ant-design/icons";
 import { Container } from "../components/Grid";
@@ -56,6 +57,10 @@ const ButtonSubmit = styled(Button)`
   }
 `;
 
+type ContactProps = {
+  assetname: string;
+};
+
 export interface IForm {
   firstname: string;
   lastname: string;
@@ -63,7 +68,8 @@ export interface IForm {
   phonenumber: string;
   detail: string;
 }
-const ContactAdmin: React.FunctionComponent = () => {
+
+const ContactAdmin: React.FunctionComponent<ContactProps> = ({ assetname }) => {
   const [form] = Form.useForm();
   const [formContact, setFormContact] = useState<IForm>({
     firstname: "",
@@ -72,6 +78,36 @@ const ContactAdmin: React.FunctionComponent = () => {
     phonenumber: "",
     detail: "",
   });
+
+  const sendEmail = (event: any) => {
+    // let data = new FormData();
+    // data.append(
+    //   "user_name",
+    //   formContact.firstname + " " + formContact.lastname
+    // );
+    // data.append("user_phone", formContact.phonenumber);
+    // data.append("email", formContact.email);
+    // data.append("asset_name", assetname);
+    let data = {
+      user_name: formContact.firstname + " " + formContact.lastname,
+      user_phone: formContact.phonenumber,
+      email: formContact.email,
+      asset_name: assetname
+    }
+    emailjs
+      .send("gmail", "winwinform", data, "user_TrNSWK27wszTjEUslSoMG")
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+
+    // emailjs.sendForm('', '', )
+  };
+
   return (
     <div>
       <ContainerBox>
@@ -90,78 +126,78 @@ const ContactAdmin: React.FunctionComponent = () => {
                 <Form
                   form={form}
                   layout={"vertical"}
-                  onFinish={() => console.log(formContact)}
+                  onFinish={(event) => sendEmail(event)}
                 >
                   <Form.Item
                     label="ชื่อ"
                     name="firtname"
                     rules={[
-                        {
-                            required: true,
+                      {
+                        required: true,
                         message: "กรุณากรอกชื่อของคุณ",
-                    },
-                ]}
-                >
+                      },
+                    ]}
+                  >
                     <InputText
                       value={formContact.firstname}
                       onChange={(e) =>
                         setFormContact({
-                            ...formContact,
-                            firstname: e.target.value,
+                          ...formContact,
+                          firstname: e.target.value,
                         })
-                    }
+                      }
                     />
                   </Form.Item>
                   <Form.Item
                     label="นามสกุล"
                     name="lastname"
                     rules={[
-                        {
-                            required: true,
-                            message: "กรุณากรอกนามสกุลของคุณ",
-                        },
+                      {
+                        required: true,
+                        message: "กรุณากรอกนามสกุลของคุณ",
+                      },
                     ]}
                   >
                     <InputText
                       value={formContact.lastname}
                       onChange={(e) =>
                         setFormContact({
-                            ...formContact,
-                            lastname: e.target.value,
+                          ...formContact,
+                          lastname: e.target.value,
                         })
-                    }
+                      }
                     />
                   </Form.Item>
                   <Form.Item
                     label="อีเมลล์"
                     name="email"
                     rules={[
-                        {
-                            required: true,
-                            message: "กรุณากรอกอีเมลล์ของคุณ",
-                        },
+                      {
+                        required: true,
+                        message: "กรุณากรอกอีเมลล์ของคุณ",
+                      },
                     ]}
                   >
                     <InputText
                       value={formContact.email}
                       onChange={(e) =>
                         setFormContact({
-                            ...formContact,
-                            email: e.target.value,
+                          ...formContact,
+                          email: e.target.value,
                         })
-                    }
+                      }
                     />
                   </Form.Item>
                   <Form.Item
                     label="เบอร์โทร"
                     name="phonenumber"
                     rules={[
-                        {
-                            required: true,
-                            message: "กรุณากรอกเบอร์โทรติดต่อกลับของคุณ",
-                        },
+                      {
+                        required: true,
+                        message: "กรุณากรอกเบอร์โทรติดต่อกลับของคุณ",
+                      },
                     ]}
-                    >
+                  >
                     <InputText
                       value={formContact.phonenumber}
                       onChange={(e) =>
@@ -169,7 +205,7 @@ const ContactAdmin: React.FunctionComponent = () => {
                           ...formContact,
                           phonenumber: e.target.value,
                         })
-                    }
+                      }
                     />
                   </Form.Item>
                   <Form.Item
@@ -201,6 +237,16 @@ const ContactAdmin: React.FunctionComponent = () => {
             </Col>
           </Row>
         </ContactBox>
+        <form className="contact-form" onSubmit={sendEmail}>
+          <input type="hidden" name="contact_number" />
+          <label>Name</label>
+          <input type="text" name="user_name" />
+          <label>Email</label>
+          <input type="email" name="user_email" />
+          <label>Message</label>
+          <textarea name="message" />
+          <input type="submit" value="Send" />
+        </form>
       </ContainerBox>
     </div>
   );
