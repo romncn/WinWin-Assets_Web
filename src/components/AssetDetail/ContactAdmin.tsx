@@ -80,22 +80,22 @@ const ContactAdmin: React.FunctionComponent<ContactProps> = ({ assetname }) => {
   });
 
   const sendEmail = (event: any) => {
-    // let data = new FormData();
-    // data.append(
-    //   "user_name",
-    //   formContact.firstname + " " + formContact.lastname
-    // );
-    // data.append("user_phone", formContact.phonenumber);
-    // data.append("email", formContact.email);
-    // data.append("asset_name", assetname);
+    let detail = "-"
+    if(formContact.detail !== "") {
+      detail = formContact.detail
+    }
     let data = {
       user_name: formContact.firstname + " " + formContact.lastname,
       user_phone: formContact.phonenumber,
       email: formContact.email,
-      asset_name: assetname
+      asset_name: assetname,
+      detail: detail
     }
+    let type = process.env.REACT_APP_EMAILJS_TYPE || ""
+    let template = process.env.REACT_APP_EMAILJS_TEMPLATE || ""
+    let userid = process.env.REACT_APP_EMAILJS_USERID || ""
     emailjs
-      .send("gmail", "winwinform", data, "user_TrNSWK27wszTjEUslSoMG")
+      .send(type, template, data, userid)
       .then(
         (result) => {
           console.log(result.text);
@@ -104,8 +104,6 @@ const ContactAdmin: React.FunctionComponent<ContactProps> = ({ assetname }) => {
           console.log(error.text);
         }
       );
-
-    // emailjs.sendForm('', '', )
   };
 
   return (
@@ -237,16 +235,6 @@ const ContactAdmin: React.FunctionComponent<ContactProps> = ({ assetname }) => {
             </Col>
           </Row>
         </ContactBox>
-        <form className="contact-form" onSubmit={sendEmail}>
-          <input type="hidden" name="contact_number" />
-          <label>Name</label>
-          <input type="text" name="user_name" />
-          <label>Email</label>
-          <input type="email" name="user_email" />
-          <label>Message</label>
-          <textarea name="message" />
-          <input type="submit" value="Send" />
-        </form>
       </ContainerBox>
     </div>
   );
