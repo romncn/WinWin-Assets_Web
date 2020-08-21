@@ -15,12 +15,41 @@ const App: React.FC = () => {
         <Router>
           <ScrollToTop />
           <Switch>
-            <Route path="/about">
-              {/* <About /> */}
-              <div>About</div>
+            <Route path="/whatis">
+              <div>WINWIN คืออะไร</div>
+            </Route>
+            <Route path="/vision">
+              <div>วิสัยทัศน์</div>
+            </Route>
+            <Route path="/portfolio">
+              <div>ผลงานที่ผ่านมา</div>
+            </Route>
+            <Route path="/vision">
+              <div>วิสัยทัศน์</div>
+            </Route>
+            <Route path="/aboutus">
+              <div>คณะผู้บริหาร</div>
+            </Route>
+            <Route path="/assets">
+              <div>ทั้งหมด</div>
+            </Route>
+            <Route path="/asset/house">
+              <div>บ้านเดี่ยว</div>
+            </Route>
+            <Route path="/asset/townhome">
+              <div>ทาวน์โฮม</div>
+            </Route>
+            <Route path="/asset/condominium">
+              <div>คอนโดมิเนียม</div>
             </Route>
             <Route path="/asset/:name">
               <AssetDetail />
+            </Route>
+            <Route path="/service">
+              <div>บริการจาก WINWIN</div>
+            </Route>
+            <Route path="/service-standard">
+              <div>มาตรฐานการบริการ</div>
             </Route>
             <Route path="/">
               <Home />
