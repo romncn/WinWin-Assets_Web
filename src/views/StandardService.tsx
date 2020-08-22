@@ -22,18 +22,29 @@ const Vision: React.FC = () => {
                     </b>
                   </h3>
                   <Content>
-                    <h3>
-                      <span>{stdserv.detail}</span>
-                      <br />
-                      {stdserv.services.map((serv, key) => {
-                        return (
-                          <span>
-                            {key + 1}. {serv}
-                            <br />
-                          </span>
-                        );
-                      })}
-                    </h3>
+                    {stdserv.description.map((des) => {
+                      return (
+                        <h3>
+                          {des.detail === "" ? (
+                            ""
+                          ) : (
+                            <span>
+                              {des.detail}
+                              <br />
+                            </span>
+                          )}
+
+                          {des.services.map((serv, key) => {
+                            return (
+                              <span>
+                                {key + 1}. {serv}
+                                <br />
+                              </span>
+                            );
+                          })}
+                        </h3>
+                      );
+                    })}
                   </Content>
                 </p>
               );
