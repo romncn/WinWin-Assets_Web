@@ -8,6 +8,7 @@ import Vision from "../components/home/Vision";
 import Service from "../components/home/Service";
 import Ads from "../data/Ads.json";
 import Assets from "../data/Assets.json";
+import LayoutWithBG from "../components/components/LayoutWithBG";
 
 const Home: React.FC = () => {
   const [assetType, setAssetType] = useState<string>("ทั้งหมด");
@@ -21,13 +22,13 @@ const Home: React.FC = () => {
       assetsFilter = Assets.filter((asset) => asset.type.includes(assetType));
     }
     if (assetsFilter.length > 6) {
-        assetsFilter = assetsFilter.slice(0, 6)
+      assetsFilter = assetsFilter.slice(0, 6)
     }
     setAssets(assetsFilter);
     console.log("assets: ", assetsFilter)
   }, [assetType]);
   return (
-    <div>
+    <LayoutWithBG>
       <Carousel ads={Ads} />
       <Welcome />
       <ShowAssets
@@ -38,7 +39,7 @@ const Home: React.FC = () => {
       <Portfolio />
       <Vision />
       <Service />
-    </div>
+    </LayoutWithBG>
   );
 };
 
