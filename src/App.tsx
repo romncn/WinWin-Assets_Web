@@ -5,8 +5,9 @@ import "antd/dist/antd.css";
 import ScrollToTop from "./ScrollToTop";
 
 //Page
-import AssetDetail from "./views/AssetDetail";
 import Home from "./views/Home";
+import AssetDetail from "./views/AssetDetail";
+import Vision from "./views/Vision"
 
 const App: React.FC = () => {
   return (
@@ -19,13 +20,10 @@ const App: React.FC = () => {
               <div>WINWIN คืออะไร</div>
             </Route>
             <Route path="/vision">
-              <div>วิสัยทัศน์</div>
+              <Vision/>
             </Route>
             <Route path="/portfolio">
               <div>ผลงานที่ผ่านมา</div>
-            </Route>
-            <Route path="/vision">
-              <div>วิสัยทัศน์</div>
             </Route>
             <Route path="/aboutus">
               <div>คณะผู้บริหาร</div>
