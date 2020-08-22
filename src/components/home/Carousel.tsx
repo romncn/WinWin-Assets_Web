@@ -13,7 +13,7 @@ const CarouselCircle = styled(Carousel)`
     margin-left: 0px;
   }
   .slick-dots li.slick-active {
-      width: 16px;
+    width: 16px;
   }
 `;
 const ContentStyle = styled.img`
@@ -32,7 +32,7 @@ type AdsProps = {
   }>;
 };
 
-const Ads: React.FC<AdsProps> = ({ ads }) => {
+const Ads: React.FC<AdsProps> = React.memo(({ ads }) => {
   return (
     <div>
       <CarouselCircle autoplay={false}>
@@ -44,6 +44,6 @@ const Ads: React.FC<AdsProps> = ({ ads }) => {
       </CarouselCircle>
     </div>
   );
-};
+});
 
 export default Ads;

@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "../components/Button";
 
-const Welcome: React.FC = () => {
+const Welcome: React.FC = React.memo(() => {
   return (
     <div
       style={{ textAlign: "center", paddingTop: "50px", paddingBottom: "50px" }}
@@ -11,6 +11,6 @@ const Welcome: React.FC = () => {
       <Button type="outline">ทำความรู้จักกับ WINWIN</Button>
     </div>
   );
-};
+});
 
 export default Welcome;
