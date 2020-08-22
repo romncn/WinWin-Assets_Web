@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Row, Col } from "antd";
 import { Container } from "../components/Grid";
 import AssetCard from "../components/AssetCard";
@@ -26,12 +26,7 @@ const AssetsSuggest: React.FunctionComponent<AssetsProps> = ({
 }) => {
   const allAsset = assets.filter((asset) => asset.id !== id);
   const assetsSuggest = allAsset.slice(0, 3);
-  let history = useHistory();
-  const onNextAsset = (id: string) => {
-    nextAsset()
-    history.push(`/asset/${id}`);
-    history.go(0);
-  };
+
   return (
     <div>
       <Container>
@@ -40,9 +35,9 @@ const AssetsSuggest: React.FunctionComponent<AssetsProps> = ({
           {assetsSuggest.map((asset) => {
             return (
               <Col span={24} lg={8} style={{ marginTop: "20px" }}>
-                <div onClick={() => onNextAsset(asset.id)}>
+                <Link to={`/asset/${asset.id}`} onClick={() => nextAsset()}>
                   <AssetCard asset={asset} />
-                </div>
+                </Link>
               </Col>
             );
           })}

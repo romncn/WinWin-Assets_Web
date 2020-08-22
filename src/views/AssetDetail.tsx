@@ -31,17 +31,24 @@ const AssetDetail: React.SFC = () => {
     detail: [{ name: "", size: 0 }],
     image: [""],
   });
+  const [reload, setReload] = useState(false);
 
   let { name } = useParams();
 
   useEffect(() => {
+    SetAssetDetail();
+  });
+  useEffect(() => {
+    SetAssetDetail();
+  }, [reload]);
+
+  const SetAssetDetail = () => {
     let asset = Assets.filter((asset) => asset.id === name);
     if (asset[0] === undefined) {
     } else {
       setAsset(asset[0]);
     }
-  }, []);
-
+  };
   const nextAsset = () => {
     setAsset({
       id: "",
@@ -51,9 +58,11 @@ const AssetDetail: React.SFC = () => {
       detail: [{ name: "", size: 0 }],
       image: [""],
     });
+    setReload(!reload);
   };
 
   if (asset.id === "") {
+    console.log(asset);
     return <div></div>;
   } else {
     return (
