@@ -9,6 +9,7 @@ import Home from "./views/Home";
 import AssetDetail from "./views/AssetDetail";
 import Vision from "./views/Vision"
 import Whatiswinwin from "./views/Whatiswinwin"
+import Services from "./views/Services"
 
 const App: React.FC = () => {
   return (
@@ -45,7 +46,7 @@ const App: React.FC = () => {
               <AssetDetail />
             </Route>
             <Route path="/service">
-              <div>บริการจาก WINWIN</div>
+              <Services/>
             </Route>
             <Route path="/service-standard">
               <div>มาตรฐานการบริการ</div>
