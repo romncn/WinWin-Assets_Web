@@ -6,11 +6,12 @@ import ShowAssets from '../components/home/ShowAssets'
 import Portfolio from '../components/home/Portfolio'
 import Vision from '../components/home/Vision'
 import Service from '../components/home/Service'
+import Ads from "../data/Ads.json"
 
 const Home: React.FC = () => {
     return (
         <div>
-            <Carousel />
+            <Carousel ads={Ads} />
             <Welcome />
             <ShowAssets />
             <Portfolio />
