@@ -8,6 +8,7 @@ import ScrollToTop from "./ScrollToTop";
 import Home from "./views/Home";
 import AssetDetail from "./views/AssetDetail";
 import Vision from "./views/Vision"
+import Whatiswinwin from "./views/Whatiswinwin"
 
 const App: React.FC = () => {
   return (
@@ -17,7 +18,7 @@ const App: React.FC = () => {
           <ScrollToTop />
           <Switch>
             <Route path="/whatis">
-              <div>WINWIN คืออะไร</div>
+              <Whatiswinwin/>
             </Route>
             <Route path="/vision">
               <Vision/>
