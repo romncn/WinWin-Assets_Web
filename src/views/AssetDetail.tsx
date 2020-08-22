@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { BodyPage } from "../components/components/Grid";
 
 import Assets from "../data/Assets.json";
 
 //components
+import ImageShow from "../components/AssetDetail/ImageShow";
 import Detail from "../components/AssetDetail/Detail";
 import ContactAdmin from "../components/AssetDetail/ContactAdmin";
 import AssetsSuggest from "../components/AssetDetail/AssetsSuggest";
@@ -56,18 +58,27 @@ const AssetDetail: React.SFC = () => {
   } else {
     return (
       <div>
-        <Detail
-          name={asset.name}
-          type={asset.type}
-          location={asset.location}
-          detail={asset.detail}
-        />
-        <div style={{ paddingTop: "50px" }}>
-          <ContactAdmin assetname={asset.name} />
-        </div>
-        <div style={{ paddingTop: "50px" }}>
-          <AssetsSuggest assets={Assets} id={asset.id} nextAsset={nextAsset} />
-        </div>
+        <BodyPage>
+          <ImageShow image={asset.image} />
+          <div style={{ paddingTop: "50px" }}>
+            <Detail
+              name={asset.name}
+              type={asset.type}
+              location={asset.location}
+              detail={asset.detail}
+            />
+          </div>
+          <div style={{ paddingTop: "50px" }}>
+            <ContactAdmin assetname={asset.name} />
+          </div>
+          <div style={{ paddingTop: "50px" }}>
+            <AssetsSuggest
+              assets={Assets}
+              id={asset.id}
+              nextAsset={nextAsset}
+            />
+          </div>
+        </BodyPage>
       </div>
     );
   }
