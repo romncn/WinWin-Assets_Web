@@ -19,7 +19,7 @@ const ImageCover = styled.img`
 const Portfolio: React.FC = () => {
     return (
         <Wrapper>
-            <Container style={{ paddingTop: "20px", paddingBottom: "20px" }}>
+            <Container style={{ paddingTop: "25px", paddingBottom: "25px" }}>
                 <h2 style={{ color: "#FFFFFF", margin: "0px" }}>
                     ผลงานที่ผ่านมา
                 </h2>
