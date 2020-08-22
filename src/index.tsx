@@ -13,11 +13,11 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Kanit', sans-serif;
   }
   h1 {
-    font-size: 40px;
+    font-size: 34px;
     color: #404143;
   }
   h2 {
-    font-size: 32px;
+    font-size: 28px;
     color: #404143;
   }
   h3 {
@@ -25,7 +25,7 @@ const GlobalStyle = createGlobalStyle`
     color: #404143;
   }
   h4 {
-    font-size: 22px;
+    font-size: 20px;
     color: #404143;
   }
   h5 {
