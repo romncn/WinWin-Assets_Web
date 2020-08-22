@@ -4,7 +4,7 @@ import Navbar from "./Navbar"
 const Layout: React.FC = ({children}) => {
     return (
         <div>
-            <Navbar/>
+            {/* <Navbar/> */}
             <div>
                 {children}
             </div>
