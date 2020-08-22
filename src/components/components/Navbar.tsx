@@ -3,6 +3,7 @@ import { Layout, Menu } from 'antd';
 import { styled } from "../../style/Theme";
 import Logo from "../../asset/Logo.svg";
 import { CaretDownOutlined } from '@ant-design/icons';
+import { Link } from "react-router-dom";
 
 const { Header } = Layout;
 const { SubMenu } = Menu;
@@ -58,61 +59,63 @@ const Navbar: React.FC = () => {
         <Wrapper>
             <Header>
                 <div className="logo">
-                    <img src={Logo} width="40px" height="40px" />
-                    <h5 style={{ fontWeight: "bold", paddingLeft: "20px", display: "inline-block" }}>บริษัท วินวิน แอสเสท จำกัด</h5>
+                    <Link to="/">
+                        <img src={Logo} width="40px" height="40px" />
+                        <h5 style={{ fontWeight: "bold", paddingLeft: "20px", display: "inline-block" }}>บริษัท วินวิน แอสเสท จำกัด</h5>
+                    </Link>
                 </div>
                 <div className="menu-bar">
                     <Menu theme="light" mode="horizontal" >
                         <SubMenu key="1" icon={<CaretDownOutlined />} title="รู้จัก WIN WIN">
                             <SubMenuItem key="sub1_1">
-                                <a href="/" target="winwin_whatis">
+                                <Link to="/whatis">
                                     WINWIN คืออะไร?
-                                </a>
+                                </Link>
                             </SubMenuItem>
                             <SubMenuItem key="sub1_2">
-                                <a href="/" target="winwin_portfolio">
+                                <Link to="/portfolio">
                                     ผลงานที่ผ่านมา
-                                </a>
+                                </Link>
                             </SubMenuItem>
                         </SubMenu>
                         <SubMenu key="2" icon={<CaretDownOutlined />} title="โครงการ">
                             <SubMenuItem key="sub2_1">
-                                <a href="/" target="winwin_house">
+                                <Link to="/asset/house">
                                     บ้านเดี่ยว
-                                </a>
+                                </Link>
                             </SubMenuItem>
                             <SubMenuItem key="sub2_2">
-                                <a href="/" target="winwin_town_home">
+                                <Link to="/asset/townhome">
                                     ทาวน์โฮม
-                                </a>
+                                </Link>
                             </SubMenuItem>
                             <SubMenuItem key="sub2_3">
-                                <a href="/" target="winwin_condominium">
+                                <Link to="/asset/condominium">
                                     คอนโดมิเนียม
-                                </a>
+                                </Link>
                             </SubMenuItem>
                         </SubMenu>
                         <SubMenu key="3" icon={<CaretDownOutlined />} title="บริการ">
                             <SubMenuItem key="sub3_1">
-                                <a href="/" target="winwin_service">
+                                <Link to="/service">
                                     บริการจาก WINWIN
-                                </a>
+                                </Link>
                             </SubMenuItem>
                             <SubMenuItem key="sub3_2">
-                                <a href="/" target="winwin_service_standards">
+                                <Link to="/standard-service">
                                     มาตรฐานการบริการ
-                                </a>
+                                </Link>
                             </SubMenuItem>
                         </SubMenu>
                         <Menu.Item key="4">
-                            <a href="/" target="winwin_management_team">
+                            <Link to="/aboutus">
                                 คณะผู้บริหาร
-                            </a>
+                            </Link>
                         </Menu.Item>
                         <Menu.Item key="5">
-                            <a href="/" target="winwin_vision">
+                            <Link to="/vision">
                                 วิสัยทัศน์
-                            </a>
+                            </Link>
                         </Menu.Item>
                     </Menu>
                 </div>
