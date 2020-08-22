@@ -5,8 +5,12 @@ import "antd/dist/antd.css";
 import ScrollToTop from "./ScrollToTop";
 
 //Page
-import AssetDetail from "./views/AssetDetail";
 import Home from "./views/Home";
+import AssetDetail from "./views/AssetDetail";
+import Vision from "./views/Vision"
+import Whatiswinwin from "./views/Whatiswinwin"
+import Services from "./views/Services"
+import StandardService from "./views/StandardService"
 
 const App: React.FC = () => {
   return (
@@ -16,16 +20,13 @@ const App: React.FC = () => {
           <ScrollToTop />
           <Switch>
             <Route path="/whatis">
-              <div>WINWIN คืออะไร</div>
+              <Whatiswinwin/>
             </Route>
             <Route path="/vision">
-              <div>วิสัยทัศน์</div>
+              <Vision/>
             </Route>
             <Route path="/portfolio">
               <div>ผลงานที่ผ่านมา</div>
-            </Route>
-            <Route path="/vision">
-              <div>วิสัยทัศน์</div>
             </Route>
             <Route path="/aboutus">
               <div>คณะผู้บริหาร</div>
@@ -46,10 +47,10 @@ const App: React.FC = () => {
               <AssetDetail />
             </Route>
             <Route path="/service">
-              <div>บริการจาก WINWIN</div>
+              <Services/>
             </Route>
-            <Route path="/service-standard">
-              <div>มาตรฐานการบริการ</div>
+            <Route path="/standard-service">
+              <StandardService/>
             </Route>
             <Route path="/">
               <Home />

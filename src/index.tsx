@@ -14,18 +14,23 @@ const GlobalStyle = createGlobalStyle`
   }
   h1 {
     font-size: 40px;
+    color: #404143;
   }
   h2 {
     font-size: 32px;
+    color: #404143;
   }
   h3 {
     font-size: 24px;   
+    color: #404143;
   }
   h4 {
     font-size: 22px;
+    color: #404143;
   }
   h5 {
     font-size: 16px;
+    color: #404143;
   }
 `;
 
