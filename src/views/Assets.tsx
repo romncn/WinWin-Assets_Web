@@ -1,64 +1,91 @@
 import React, { useState, useEffect } from "react";
-import { useHistory, Redirect } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Row, Col } from "antd";
 import { Container, BodyPage } from "../components/components/Grid";
-import AssetTypeBar from "../components/components/AssetTypeBar";
 import AssetCard from "../components/components/AssetCard";
 import Assets from "../data/Assets.json";
 
-type TypeAssetProps = {
-  type: string;
+import styled from "styled-components";
+
+type MenuProps = {
+  selected: boolean;
 };
 
-const AssetsSuggest: React.FC<TypeAssetProps> = ({ type }) => {
-  let history = useHistory();
-  const [assetType, setAssetType] = useState<string>(type);
+const Menu = styled.button<MenuProps>`
+  background-color: ${({ theme, selected }) =>
+    selected ? theme.color.basecolor : "transparent"};
+  border-radius: 8px;
+  border: none;
+  padding: 5px 15px 5px 15px;
+  margin: 0px 10px 0px 10px;
+  font-size: 24px;
+  cursor: pointer;
+  color: ${({ selected }) => (selected ? "white" : "#404143")};
+`;
+
+const AssetsSuggest: React.FC = () => {
+  let location = useLocation();
+  const [assetType, setAssetType] = useState<string>("ทั้งหมด");
   const [assets, setAssets] = useState(Assets);
-  const [redirect, setRedirect] = useState<boolean>(false);
-  const onChangeAssetType = (type: string) => {
-    setAssetType(type);
-    setRedirect(true);
-  };
+
+  useEffect(() => {
+    let page = location.pathname.substr(7);
+    switch (page) {
+      case "":
+        setAssetType("ทั้งหมด");
+        break;
+      case "house":
+        setAssetType("บ้านเดี่ยว");
+        break;
+      case "townhome":
+        setAssetType("ทาวน์โฮม");
+        break;
+      case "condominium":
+        setAssetType("คอนโด");
+        break;
+      default:
+        break;
+    }
+  });
+
   useEffect(() => {
     let assetsFilter = Assets;
     if (assetType !== "ทั้งหมด") {
       assetsFilter = Assets.filter((asset) => asset.type.includes(assetType));
     }
     setAssets(assetsFilter);
-    console.log("assets: ", assetsFilter);
   }, [assetType]);
-  if (redirect) {
-    switch (assetType) {
-      case "ทั้งหมด":
-        history.push("/assets");
-        history.go(0);
-        break;
-      case "บ้านเดี่ยว":
-        history.push("/asset/house");
-        history.go(0);
-        break;
-      case "ทาวน์โฮม":
-        history.push("/asset/townhome");
-        history.go(0);
-        break;
-      case "คอนโด":
-        history.push("/asset/condominium");
-        history.go(0);
-        break;
-      default:
-        break;
-    }
-  }
+
   return (
     <BodyPage>
       <Container>
         <h1>
           <b>แนะนำโครงการ</b>
         </h1>
-        <AssetTypeBar
-          selected={assetType}
-          onChangeAssetType={onChangeAssetType}
-        />
+        <div>
+          <Row justify="center">
+            <Col>
+              <Link to="/assets">
+                <Menu selected={assetType === "ทั้งหมด"}>ทั้งหมด</Menu>
+              </Link>
+            </Col>
+            <Col>
+              <Link to="/asset/house">
+                <Menu selected={assetType === "บ้านเดี่ยว"}>บ้านเดี่ยว</Menu>
+              </Link>
+            </Col>
+            <Col>
+              <Link to="/asset/townhome">
+                <Menu selected={assetType === "ทาวน์โฮม"}>ทาวน์โฮม</Menu>
+              </Link>
+            </Col>
+            <Col>
+              <Link to="/asset/condominium">
+                <Menu selected={assetType === "คอนโด"}>คอนโด</Menu>
+              </Link>
+            </Col>
+          </Row>
+        </div>
         <Row gutter={12}>
           {assets.map((asset) => {
             return (

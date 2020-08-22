@@ -32,19 +32,19 @@ const App: React.FC = () => {
             <Route path="/aboutus">
               <div>คณะผู้บริหาร</div>
             </Route>
-            <Route path="/assets">
-              <Assets type="ทั้งหมด" />
+            <Route exact path="/assets">
+              <Assets />
             </Route>
-            <Route path="/asset/house">
-              <Assets type="บ้านเดี่ยว" />
+            <Route exact path="/asset/house">
+              <Assets />
             </Route>
-            <Route path="/asset/townhome">
-              <Assets type="ทาวน์โฮม" />
+            <Route exact path="/asset/townhome">
+              <Assets />
             </Route>
-            <Route path="/asset/condominium">
-              <Assets type="คอนโด" />
+            <Route exact path="/asset/condominium">
+              <Assets />
             </Route>
-            <Route path="/asset/:name">
+            <Route exact path="/asset/:name">
               <AssetDetail />
             </Route>
             <Route path="/service">
