@@ -1,6 +1,6 @@
 import React from "react"
 import { Button as AntButton } from 'antd';
-import styled from 'styled-components';
+import { styled } from "../../style/Theme";
 
 const DefaultButton = styled(AntButton)`
     border-radius: 4px;
@@ -8,11 +8,11 @@ const DefaultButton = styled(AntButton)`
     width: 248px;
     height: 42px;
     text-align: center;
-    font-size: 16px;
+    font-size: 14px;
 `;
 const PrimaryButton = styled(DefaultButton)`
-    background: #843A39;
-    border: #843A39;
+    background:  ${props => (props.theme.color.basecolor)};
+    border:  ${props => (props.theme.color.basecolor)};
     color: #F7F7F7;
     &:hover , &:active {
         color: #F7F7F7;
@@ -22,11 +22,11 @@ const PrimaryButton = styled(DefaultButton)`
 `;
 
 const OutlineButton = styled(DefaultButton)`
-    color: #843A39;
-    border: 1.5px solid #843A39;
+    color: ${props => (props.theme.color.basecolor)};
+    border: 1.5px solid  ${props => (props.theme.color.basecolor)};
     &:hover , &:active {
-        color: #843A39;
-        border: 1.5px solid #843A39;
+        color:  ${props => (props.theme.color.basecolor)};
+        border: 1.5px solid  ${props => (props.theme.color.basecolor)};
         background: #F7F7F7;
     }
 `;

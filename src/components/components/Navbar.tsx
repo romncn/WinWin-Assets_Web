@@ -1,7 +1,6 @@
 import React from "react"
 import { Layout, Menu } from 'antd';
 import { styled } from "../../style/Theme";
-import Logo from "../../asset/Logo.svg";
 import { CaretDownOutlined } from '@ant-design/icons';
 import { Link } from "react-router-dom";
 
@@ -60,8 +59,8 @@ const Navbar: React.FC = () => {
             <Header>
                 <div className="logo">
                     <Link to="/">
-                        <img src={Logo} width="40px" height="40px" />
-                        <h5 style={{ fontWeight: "bold", paddingLeft: "20px", display: "inline-block" }}>บริษัท วินวิน แอสเสท จำกัด</h5>
+                        <img src="/img/Logo.svg" width="40px" height="40px" />
+                        <h5 style={{ fontWeight: "bold", paddingLeft: "20px", display: "inline-block", margin:"0px" }}>บริษัท วินวิน แอสเสท จำกัด</h5>
                     </Link>
                 </div>
                 <div className="menu-bar">
@@ -91,7 +90,7 @@ const Navbar: React.FC = () => {
                             </SubMenuItem>
                             <SubMenuItem key="sub2_3">
                                 <Link to="/asset/condominium">
-                                    คอนโดมิเนียม
+                                    คอนโด
                                 </Link>
                             </SubMenuItem>
                         </SubMenu>

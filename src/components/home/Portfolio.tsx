@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components";
 import { Container } from "../components/Grid";
 import Button from "../components/Button";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 import { Row, Col } from 'antd';
 
 
@@ -20,9 +20,9 @@ const Portfolio: React.FC = () => {
     return (
         <Wrapper>
             <Container style={{ paddingTop: "25px", paddingBottom: "25px" }}>
-                <h2 style={{ color: "#FFFFFF", margin: "0px" }}>
-                    ผลงานที่ผ่านมา
-                </h2>
+                <h1 style={{ color: "#FFFFFF", margin: "0px" }}>
+                    <b>ผลงานที่ผ่านมา</b>
+                </h1>
                 <Row gutter={[24, 24]}
                     justify="space-around"
                     style={{ color: "white", paddingTop: "15px", paddingBottom: "15px" }}

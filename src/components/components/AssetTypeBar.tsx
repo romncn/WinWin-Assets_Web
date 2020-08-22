@@ -16,6 +16,11 @@ const Menu = styled.button<MenuProps>`
   font-size: 24px;
   cursor: pointer;
   color: ${({ selected }) => (selected ? "white" : "")};
+
+  &:hover {
+    background-color: ${({ theme, selected }) =>
+    selected ? theme.color.basecolor : "#F7F7F7"};
+  }
 `;
 
 type AssetTypeProps = {

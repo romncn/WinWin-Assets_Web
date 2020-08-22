@@ -16,7 +16,9 @@ const Vision: React.FC = () => {
     return (
         <Wrapper>
             <Container style={{ textAlign: "center", paddingTop: "40px", paddingBottom: "40px" }}>
-                <h2>วิสัยทัศน์</h2>
+                <h1>
+                    <b>วิสัยทัศน์</b>
+                </h1>
                 <h4>“ บริษัท วิน วิน แอสเสท จำกัด เน้นสร้างงานบริหารการขาย เน้นคุณภาพในการให้บริการที่ดีที่สุด</h4>
                 <h4>ด้วยความสามารถของทีมงานมืออาชีพจากประสบการณ์ที่มียาวนานกว่า 10 ปี “</h4>
                 <div style={{ paddingTop: "15px", paddingBottom: "15px" }}>
