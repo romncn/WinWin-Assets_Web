@@ -15,15 +15,15 @@ import StandardService from "./views/StandardService"
 const App: React.FC = () => {
   return (
     <div className="App">
-      <Layout>
-        <Router>
+      <Router>
+        <Layout>
           <ScrollToTop />
           <Switch>
             <Route path="/whatis">
-              <Whatiswinwin/>
+              <Whatiswinwin />
             </Route>
             <Route path="/vision">
-              <Vision/>
+              <Vision />
             </Route>
             <Route path="/portfolio">
               <div>ผลงานที่ผ่านมา</div>
@@ -47,17 +47,17 @@ const App: React.FC = () => {
               <AssetDetail />
             </Route>
             <Route path="/service">
-              <Services/>
+              <Services />
             </Route>
             <Route path="/standard-service">
-              <StandardService/>
+              <StandardService />
             </Route>
             <Route path="/">
               <Home />
             </Route>
           </Switch>
-        </Router>
-      </Layout>
+        </Layout>
+      </Router>
     </div>
   );
 };
