@@ -7,7 +7,7 @@ import Winwin from "../data/Winwin.json";
 const ImageCover = styled.img`
   width: 100%;
   border-radius: 8px;
-  margin-top: 50px;
+  margin-top: 20px;
 `;
 
 const Vision: React.FC = () => {
