@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Container } from "../components/Grid";
 import { Row, Col } from "antd";
 import AssetTypeBar from "../components/AssetTypeBar";
@@ -36,15 +37,17 @@ const ShowAssets: React.FC<AssetTypeProps> = React.memo(
               {assets.map((asset) => {
                 return (
                   <Col span={24} lg={8} style={{ marginTop: "30px" }}>
-                    <div>
+                    <Link to={`/asset/${asset.id}`}>
                       <AssetCard asset={asset} />
-                    </div>
+                    </Link>
                   </Col>
                 );
               })}
             </Row>
             <div style={{ paddingTop: "30px", textAlign: "right" }}>
-              <h2>{"ดูทั้งหมด >>"}</h2>
+              <Link to="/assets">
+                <h2>{"ดูทั้งหมด >>"}</h2>
+              </Link>
             </div>
           </div>
         </Container>

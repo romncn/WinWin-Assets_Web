@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Button from "../components/Button";
 
 const Welcome: React.FC = React.memo(() => {
@@ -8,7 +9,9 @@ const Welcome: React.FC = React.memo(() => {
     >
       <h4>ยินดีต้อนรับเข้าสู่</h4>
       <h1>WIN WIN ASSETS</h1>
-      <Button type="outline">ทำความรู้จักกับ WINWIN</Button>
+      <Link to="/whatis">
+        <Button type="outline">ทำความรู้จักกับ WINWIN</Button>
+      </Link>
     </div>
   );
 });
