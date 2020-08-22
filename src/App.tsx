@@ -7,10 +7,11 @@ import ScrollToTop from "./ScrollToTop";
 //Page
 import Home from "./views/Home";
 import AssetDetail from "./views/AssetDetail";
-import Vision from "./views/Vision"
-import Whatiswinwin from "./views/Whatiswinwin"
-import Services from "./views/Services"
-import StandardService from "./views/StandardService"
+import Vision from "./views/Vision";
+import Whatiswinwin from "./views/Whatiswinwin";
+import Services from "./views/Services";
+import StandardService from "./views/StandardService";
+import Assets from "./views/Assets";
 
 const App: React.FC = () => {
   return (
@@ -32,16 +33,16 @@ const App: React.FC = () => {
               <div>คณะผู้บริหาร</div>
             </Route>
             <Route path="/assets">
-              <div>ทั้งหมด</div>
+              <Assets type="ทั้งหมด" />
             </Route>
             <Route path="/asset/house">
-              <div>บ้านเดี่ยว</div>
+              <Assets type="บ้านเดี่ยว" />
             </Route>
             <Route path="/asset/townhome">
-              <div>ทาวน์โฮม</div>
+              <Assets type="ทาวน์โฮม" />
             </Route>
             <Route path="/asset/condominium">
-              <div>คอนโดมิเนียม</div>
+              <Assets type="คอนโด" />
             </Route>
             <Route path="/asset/:name">
               <AssetDetail />

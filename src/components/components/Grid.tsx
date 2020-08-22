@@ -20,7 +20,4 @@ export const Content = styled.div`
 export const BodyPage = styled.div`
   padding-top: 50px;
   padding-bottom: 20px;
-  @media screen and (min-width: 992px) {
-    padding-top: 100px;
-  }
 `;
