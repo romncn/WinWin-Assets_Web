@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { styled } from "../../style/Theme";
 import emailjs from "emailjs-com";
+import Swal from "sweetalert2";
 import { Row, Col, Form, Input, Button, Space } from "antd";
 import { CommentOutlined } from "@ant-design/icons";
 import { Container } from "../components/Grid";
@@ -80,32 +81,46 @@ const ContactAdmin: React.FunctionComponent<ContactProps> = ({ assetname }) => {
   });
 
   const sendEmail = (event: any) => {
-    let detail = "-"
-    if(formContact.detail !== "") {
-      detail = formContact.detail
+    let detail = "-";
+    if (formContact.detail !== "") {
+      detail = formContact.detail;
     }
     let data = {
       user_name: formContact.firstname + " " + formContact.lastname,
       user_phone: formContact.phonenumber,
       email: formContact.email,
       asset_name: assetname,
-      detail: detail
-    }
-    let type = process.env.REACT_APP_EMAILJS_TYPE || ""
-    let template = process.env.REACT_APP_EMAILJS_TEMPLATE || ""
-    let userid = process.env.REACT_APP_EMAILJS_USERID || ""
-    emailjs
-      .send(type, template, data, userid)
-      .then(
-        (result) => {
-          console.log(result.text);
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
+      detail: detail,
+    };
+    let type = process.env.REACT_APP_EMAILJS_TYPE || "";
+    let template = process.env.REACT_APP_EMAILJS_TEMPLATE || "";
+    let userid = process.env.REACT_APP_EMAILJS_USERID || "";
+    emailjs.send(type, template, data, userid).then(
+      (result) => {
+        Swal.fire({
+          icon: "success",
+          title: "ส่งอีเมลล์สำเร็จ",
+          text: "ทางเราได้รับจดหมายแล้ว และจะทำการติดต่อกลับ",
+        });
+      },
+      (error) => {
+        Swal.fire({
+          icon: "error",
+          title: "ส่งอีเมลล์ไม่สำเร็จ",
+          text: "ระบบมีปัญหา ขออภัยในความไม่สะดวก รบกวนติดต่อช่องทางอื่น",
+        });
+        return;
+      }
+    );
+    setFormContact({
+      firstname: "",
+      lastname: "",
+      email: "",
+      phonenumber: "",
+      detail: "",
+    });
   };
-
+  console.log(formContact);
   return (
     <div>
       <ContainerBox>
@@ -206,16 +221,7 @@ const ContactAdmin: React.FunctionComponent<ContactProps> = ({ assetname }) => {
                       }
                     />
                   </Form.Item>
-                  <Form.Item
-                    label="รายละเอียด"
-                    name="detail"
-                    rules={[
-                      {
-                        required: true,
-                        message: "กรุณากรอกรายละเอียด",
-                      },
-                    ]}
-                  >
+                  <Form.Item label="รายละเอียด" name="detail">
                     <InputTextArea
                       autoSize={{ minRows: 3, maxRows: 5 }}
                       value={formContact.detail}
