@@ -13,23 +13,23 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Kanit', sans-serif;
   }
   h1 {
-    font-size: 34px;
+    font-size: 32px;
     color: #404143;
   }
   h2 {
-    font-size: 28px;
+    font-size: 26px;
     color: #404143;
   }
   h3 {
-    font-size: 24px;   
+    font-size: 22px;   
     color: #404143;
   }
   h4 {
-    font-size: 20px;
+    font-size: 18px;
     color: #404143;
   }
   h5 {
-    font-size: 16px;
+    font-size: 14px;
     color: #404143;
   }
 `;
