@@ -12,6 +12,7 @@ import Whatiswinwin from "./views/Whatiswinwin";
 import Services from "./views/Services";
 import StandardService from "./views/StandardService";
 import Assets from "./views/Assets";
+import Portfolio from "./views/Portfolio";
 
 const App: React.FC = () => {
   return (
@@ -27,7 +28,7 @@ const App: React.FC = () => {
               <Vision />
             </Route>
             <Route path="/portfolio">
-              <div>ผลงานที่ผ่านมา</div>
+              <Portfolio />
             </Route>
             <Route path="/aboutus">
               <div>คณะผู้บริหาร</div>
