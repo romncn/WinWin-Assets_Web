@@ -13,6 +13,7 @@ import Services from "./views/Services";
 import StandardService from "./views/StandardService";
 import Assets from "./views/Assets";
 import Portfolio from "./views/Portfolio";
+import AboutUs from "./views/AboutUs";
 
 const App: React.FC = () => {
   return (
@@ -31,7 +32,7 @@ const App: React.FC = () => {
               <Portfolio />
             </Route>
             <Route path="/aboutus">
-              <div>คณะผู้บริหาร</div>
+              <AboutUs />
             </Route>
             <Route exact path="/assets">
               <Assets />
