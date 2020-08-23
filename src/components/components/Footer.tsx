@@ -20,7 +20,7 @@ const Wrapper = styled.div`
     }
     .content {
         text-align: center;
-        padding: 20px 0px 20px 0px;
+        padding: 0px 0px 20px 0px;
     }
     .contact {
         padding: 15px 0px 15px 0px;

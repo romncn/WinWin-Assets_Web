@@ -17,6 +17,11 @@ export const Content = styled.div`
   }
 `;
 
+export const WrapperContent = styled.div`
+  padding-top: 50px;
+  padding-bottom: 50px;
+`;
+
 export const BodyPage = styled.div`
   padding-top: 50px;
   padding-bottom: 20px;
