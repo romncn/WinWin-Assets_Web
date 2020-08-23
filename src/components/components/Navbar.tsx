@@ -7,8 +7,11 @@ import { Link } from "react-router-dom";
 const { Header } = Layout;
 const { SubMenu } = Menu;
 
-const Wrapper = styled(Layout)`
+type MenuProps = {
+    selected: boolean;
+};
 
+const Wrapper = styled(Layout)`
     .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item:hover, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu:hover, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item-active, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu-active, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item-open, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu-open, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item-selected, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu-selected {
         .ant-menu-submenu-title:hover {
             color: ${props => (props.theme.color.basecolor)};
@@ -19,35 +22,62 @@ const Wrapper = styled(Layout)`
         color: ${props => (props.theme.color.basecolor)};
         border-bottom: 2px solid ${props => (props.theme.color.basecolor)};
     }
-    .ant-layout-header{
-        background: #FFFFFF;
-        padding: 0 30px;
-        display: flex;
-        justify-content: space-between; 
-        .logo {
-            height: 100%;
-        }
-        .ant-menu-horizontal {
-            border-bottom: none;
-        }
+    .ant-menu {
+        font-size: 16px;
     }
+    .ant-layout-header {
+            background: white;
+            padding: 0 30px;
+            .logo {
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .ant-menu-horizontal {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
     .ant-menu-horizontal:not(.ant-menu-dark) {
         .ant-menu-item {
-            margin: 0 60px;
+            margin: 0 10px;
         }
         .ant-menu-submenu {
-            margin: 0 60px;
+            margin: 0 10px;
+        }
+    }
+    @media screen and (min-width: 1180px) {
+        .ant-layout-header{
+            background: white;
+            display: flex;
+            justify-content: space-between;
+            .logo {
+                display: flex;
+                height: 100%;
+            }
+            .ant-menu-horizontal {
+                position: relative;
+                border-bottom: none;
+            }
+        }
+        .ant-menu-horizontal:not(.ant-menu-dark) {
+            .ant-menu-item {
+                margin: 0 40px;
+            }
+            .ant-menu-submenu {
+                margin: 0 40px;
+            }
         }
     }
     
 `
 const SubMenuItem = styled(Menu.Item)`
-    color: ${props => (props.theme.color.basecolor)};
     &:hover , &:active, &:focus {
         background: ${props => (props.theme.color.basecolor)};
-        color: #FFFFFF;
         a {
-            color: #FFFFFF; 
+            color: white;
         }
     }
 `
@@ -60,47 +90,47 @@ const Navbar: React.FC = () => {
                 <div className="logo">
                     <Link to="/">
                         <img src="/img/Logo.svg" width="40px" height="40px" />
-                        <h5 style={{ fontWeight: "bold", paddingLeft: "20px", display: "inline-block", margin:"0px" }}>บริษัท วินวิน แอสเสท จำกัด</h5>
+                        <h4 style={{ fontWeight: "bold", paddingLeft: "20px", display: "inline-block", margin: "0px" }}>บริษัท วินวิน แอสเสท จำกัด</h4>
                     </Link>
                 </div>
-                <div className="menu-bar">
+                <span className="menu-bar">
                     <Menu theme="light" mode="horizontal" >
                         <SubMenu key="1" icon={<CaretDownOutlined />} title="รู้จัก WIN WIN">
-                            <SubMenuItem key="sub1_1">
+                            <SubMenuItem  key="whatis">
                                 <Link to="/whatis">
                                     WINWIN คืออะไร?
                                 </Link>
                             </SubMenuItem>
-                            <SubMenuItem key="sub1_2">
+                            <SubMenuItem key="portfolio">
                                 <Link to="/portfolio">
                                     ผลงานที่ผ่านมา
                                 </Link>
                             </SubMenuItem>
                         </SubMenu>
                         <SubMenu key="2" icon={<CaretDownOutlined />} title="โครงการ">
-                            <SubMenuItem key="sub2_1">
+                            <SubMenuItem key="asset_house">
                                 <Link to="/asset/house">
                                     บ้านเดี่ยว
                                 </Link>
                             </SubMenuItem>
-                            <SubMenuItem key="sub2_2">
+                            <SubMenuItem key="asset_townhome">
                                 <Link to="/asset/townhome">
                                     ทาวน์โฮม
                                 </Link>
                             </SubMenuItem>
-                            <SubMenuItem key="sub2_3">
+                            <SubMenuItem key="asset_condiminium">
                                 <Link to="/asset/condominium">
                                     คอนโด
                                 </Link>
                             </SubMenuItem>
                         </SubMenu>
                         <SubMenu key="3" icon={<CaretDownOutlined />} title="บริการ">
-                            <SubMenuItem key="sub3_1">
+                            <SubMenuItem key="service">
                                 <Link to="/service">
                                     บริการจาก WINWIN
                                 </Link>
                             </SubMenuItem>
-                            <SubMenuItem key="sub3_2">
+                            <SubMenuItem key="standard_service">
                                 <Link to="/standard-service">
                                     มาตรฐานการบริการ
                                 </Link>
@@ -117,7 +147,7 @@ const Navbar: React.FC = () => {
                             </Link>
                         </Menu.Item>
                     </Menu>
-                </div>
+                </span>
             </Header>
         </Wrapper>
     )
