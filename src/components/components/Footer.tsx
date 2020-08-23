@@ -7,7 +7,8 @@ import { Link } from "react-router-dom";
 const Wrapper = styled.div`
     width: 100%;
     height: 100%;
-    background: #404143;
+    background-image: url("/img/footer-bg.png");
+    background-size: cover;
     h3,h4,h5 {
         color: white;
         margin: 0px;
