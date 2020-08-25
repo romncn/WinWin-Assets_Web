@@ -11,12 +11,39 @@ const Bar = styled.div`
   width: 100%;
   text-align: center;
   justify-content: center;
-  @media screen and (min-width: 992px) {
+  .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item,
+  .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu {
+    &:hover,
+    &:active,
+    &:focus {
+      color: ${props => (props.theme.color.basecolor)};
+      border-bottom: 2px solid ${props => (props.theme.color.basecolor)};
+    }
+    a, .ant-menu-submenu-title {
+      &:hover,
+      &:active,
+      &:focus {
+      color: ${props => (props.theme.color.basecolor)};
+      }
+    }
+  }
+  .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item-open,
+  .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu-open,
+  .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item-selected,
+  .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu-selected {
+    color: ${props => (props.theme.color.basecolor)};
+    border-bottom: 2px solid ${props => (props.theme.color.basecolor)};
+     a {
+      color: ${props => (props.theme.color.basecolor)};
+     }
+  }
+  @media screen and (min-width: 1250px) {
     display: flex;
     width: 100%;
     justify-content: space-between;
   }
 `;
+
 const Logo = styled.div`
   display: inline-block;
 `;
@@ -27,6 +54,14 @@ const MenuBar = styled.div`
   .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item,
   .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu {
     margin: 0 20px;
+  }
+  @media (max-width: 768px) {
+    display: flex;
+    justify-content: center;
+    .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item,
+    .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu {
+      margin: 0 10px;
+    }
   }
 `;
 
