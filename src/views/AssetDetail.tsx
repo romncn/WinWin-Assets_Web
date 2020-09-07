@@ -17,7 +17,6 @@ export interface IAsset {
   location: string;
   detail: Array<{
     name: string;
-    size: number;
   }>;
   image: Array<string>;
 }
@@ -28,7 +27,7 @@ const AssetDetail: React.SFC = () => {
     name: "",
     type: [""],
     location: "",
-    detail: [{ name: "", size: 0 }],
+    detail: [{ name: "" }],
     image: [""],
   });
   const [reload, setReload] = useState(false);
@@ -36,11 +35,11 @@ const AssetDetail: React.SFC = () => {
   let { name } = useParams();
 
   useEffect(() => {
-    document.title = "โครงการ"+asset.name+" - winwin asset";
+    document.title = "โครงการ" + asset.name + " - winwin asset";
     SetAssetDetail();
   });
   useEffect(() => {
-    document.title = "โครงการ"+asset.name+" - winwin asset";
+    document.title = "โครงการ" + asset.name + " - winwin asset";
     SetAssetDetail();
   }, [reload]);
 
@@ -57,7 +56,7 @@ const AssetDetail: React.SFC = () => {
       name: "",
       type: [""],
       location: "",
-      detail: [{ name: "", size: 0 }],
+      detail: [{ name: "" }],
       image: [""],
     });
     setReload(!reload);
