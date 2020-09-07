@@ -15,7 +15,6 @@ type AssetTypeProps = {
     location: string;
     detail: Array<{
       name: string;
-      size: number;
     }>;
     image: Array<string>;
   }>;
