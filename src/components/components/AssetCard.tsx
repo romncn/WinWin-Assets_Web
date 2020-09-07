@@ -44,8 +44,8 @@ type AssetsProps = {
     location: string;
     detail: Array<{
       name: string;
-      size: number;
     }>;
+    image: Array<string>;
   };
 };
 
@@ -54,10 +54,7 @@ const AssetCard: React.FunctionComponent<AssetsProps> = ({ asset }) => {
     <div>
       <CardAsset
         cover={
-          <ImageCover
-            alt="example"
-            src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
-          />
+          <ImageCover alt="example" src={`/img/assets/${asset.image[0]}`} />
         }
       >
         <div>

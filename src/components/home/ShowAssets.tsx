@@ -17,6 +17,7 @@ type AssetTypeProps = {
       name: string;
       size: number;
     }>;
+    image: Array<string>;
   }>;
 };
 

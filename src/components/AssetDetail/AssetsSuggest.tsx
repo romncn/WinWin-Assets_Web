@@ -12,8 +12,8 @@ type AssetsProps = {
     location: string;
     detail: Array<{
       name: string;
-      size: number;
     }>;
+    image: Array<string>;
   }>;
   id: string;
   nextAsset(): void;
