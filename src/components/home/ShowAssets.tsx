@@ -46,9 +46,9 @@ const ShowAssets: React.FC<AssetTypeProps> = React.memo(
               })}
             </Row>
             <div style={{ paddingTop: "30px", textAlign: "right" }}>
-              <Link to="/assets">
-                <h2>{"ดูทั้งหมด >>"}</h2>
-              </Link>
+              <h1>
+                <Link to="/assets" style={{color:"#404143"}}>{"ดูทั้งหมด >>"}</Link>
+              </h1>
             </div>
           </div>
         </Container>
