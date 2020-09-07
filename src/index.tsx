@@ -32,6 +32,12 @@ const GlobalStyle = createGlobalStyle`
     font-size: 14px;
     color: #404143;
   }
+  .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+    background-color: #843A39;
+    a {
+      color: white;
+    }
+  }
 `;
 
 ReactDOM.render(
