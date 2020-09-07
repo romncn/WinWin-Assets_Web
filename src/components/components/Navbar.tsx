@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Layout, Menu } from "antd";
 import { Container } from "./Grid";
 import { styled } from "../../style/Theme";
@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 const { SubMenu } = Menu;
 
 const Bar = styled.div`
+
   width: 100%;
   text-align: center;
   justify-content: center;
@@ -77,6 +78,9 @@ const SubMenuItem = styled(Menu.Item)`
 `;
 
 const Navbar: React.FC = () => {
+  useEffect(() => {
+    console.log('debug');
+  }, [])
   return (
     <div style={{ borderBottom: "1px solid black" }}>
       <Container>
@@ -97,13 +101,14 @@ const Navbar: React.FC = () => {
             </Link>
           </Logo>
           <MenuBar>
-            <Menu theme="light" mode="horizontal" style={{ height: "50px" }}>
+            <Menu theme="light" mode="horizontal" style={{ height: "50px" }} defaultOpenKeys={['1']} defaultSelectedKeys={['whatis']}>
+            {/* <Menu theme="light" mode="horizontal" style={{ height: "50px" }}> */}
               <SubMenu
                 key="1"
                 icon={<CaretDownOutlined />}
                 title="รู้จัก WIN WIN"
               >
-                <SubMenuItem key="whatis">
+                <SubMenuItem key="whatis" >
                   <Link to="/whatis">WINWIN คืออะไร?</Link>
                 </SubMenuItem>
                 <SubMenuItem key="portfolio">
