@@ -19,7 +19,6 @@ type AssetDetailProps = {
   location: string;
   detail: Array<{
     name: string;
-    size: number;
   }>;
 };
 
@@ -59,7 +58,7 @@ const Detail: FunctionComponent<AssetDetailProps> = ({
             {detail.map((d, key) => {
               return (
                 <span>
-                  {d.name} {d.size} ตรว. {key === detail.length - 1 ? "" : ", "}
+                  {d.name} {key === detail.length - 1 ? "" : ", "}
                 </span>
               );
             })}
