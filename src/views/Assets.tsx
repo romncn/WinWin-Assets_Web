@@ -21,10 +21,10 @@ const Menu = styled.button<MenuProps>`
   font-size: 24px;
   cursor: pointer;
   color: ${({ selected }) => (selected ? "white" : "#404143")};
-  
+
   &:hover {
     background-color: ${({ theme, selected }) =>
-    selected ? theme.color.basecolor : "#F7F7F7"};
+      selected ? theme.color.basecolor : "#F7F7F7"};
   }
 `;
 
@@ -34,6 +34,7 @@ const AssetsSuggest: React.FC = () => {
   const [assets, setAssets] = useState(Assets);
 
   useEffect(() => {
+    document.title = "โครงการ" + assetType + " - winwin asset";
     let page = location.pathname.substr(7);
     switch (page) {
       case "":
@@ -95,9 +96,9 @@ const AssetsSuggest: React.FC = () => {
           {assets.map((asset) => {
             return (
               <Col span={24} lg={8} style={{ marginTop: "30px" }}>
-                <div>
+                <Link to={`/asset/${asset.id}`}>
                   <AssetCard asset={asset} />
-                </div>
+                </Link>
               </Col>
             );
           })}

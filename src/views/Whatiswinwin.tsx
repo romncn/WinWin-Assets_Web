@@ -1,10 +1,13 @@
-import React from "react";
+import React, {useEffect} from "react";
 import styled from "styled-components";
 import LayoutWithBG from "../components/components/LayoutWithBG";
 import { Container, Content, BodyPage, WrapperContent } from "../components/components/Grid";
 import Winwin from "../data/Winwin.json";
 
 const Vision: React.FC = () => {
+  useEffect(() => {
+    document.title = "win win คืออะไร? - winwin asset"
+  }, [])
   return (
     <LayoutWithBG>
       <Container>

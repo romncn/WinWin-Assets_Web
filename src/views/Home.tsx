@@ -17,15 +17,16 @@ const Home: React.FC = () => {
     setAssetType(type);
   };
   useEffect(() => {
+    document.title = "หน้าหลัก - winwin asset";
     let assetsFilter = Assets;
     if (assetType !== "ทั้งหมด") {
       assetsFilter = Assets.filter((asset) => asset.type.includes(assetType));
     }
     if (assetsFilter.length > 6) {
-      assetsFilter = assetsFilter.slice(0, 6)
+      assetsFilter = assetsFilter.slice(0, 6);
     }
     setAssets(assetsFilter);
-    console.log("assets: ", assetsFilter)
+    console.log("assets: ", assetsFilter);
   }, [assetType]);
   return (
     <LayoutWithBG>

@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
-import LayoutWithBG from "../components/components/LayoutWithBG"
-import { Container, Content, BodyPage, WrapperContent } from "../components/components/Grid";
+import LayoutWithBG from "../components/components/LayoutWithBG";
+import {
+  Container,
+  Content,
+  BodyPage,
+  WrapperContent,
+} from "../components/components/Grid";
 import Winwin from "../data/Winwin.json";
 
 const ImageCover = styled.img`
@@ -11,6 +16,9 @@ const ImageCover = styled.img`
 `;
 
 const Vision: React.FC = () => {
+  useEffect(() => {
+    document.title = "วิสัยทัศน์ - winwin asset"
+  }, [])
   return (
     <LayoutWithBG>
       <Container>

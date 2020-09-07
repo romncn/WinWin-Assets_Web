@@ -1,10 +1,13 @@
-import React from "react";
+import React, {useEffect} from "react";
 import styled from "styled-components";
 import LayoutWithBG from "../components/components/LayoutWithBG";
 import { Container, Content, BodyPage, WrapperContent } from "../components/components/Grid";
 import Service from "../data/Service.json";
 
 const Vision: React.FC = () => {
+  useEffect(() => {
+    document.title = "บริการจาก win win - winwin asset"
+  }, [])
   return (
     <LayoutWithBG>
       <Container>

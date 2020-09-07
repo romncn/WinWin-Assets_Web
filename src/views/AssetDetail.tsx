@@ -36,9 +36,11 @@ const AssetDetail: React.SFC = () => {
   let { name } = useParams();
 
   useEffect(() => {
+    document.title = "โครงการ"+asset.name+" - winwin asset";
     SetAssetDetail();
   });
   useEffect(() => {
+    document.title = "โครงการ"+asset.name+" - winwin asset";
     SetAssetDetail();
   }, [reload]);
 
