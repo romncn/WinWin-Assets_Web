@@ -54,7 +54,7 @@ const ImageShow: FunctionComponent<AssetImageProps> = ({ image }) => {
           <SubImageCover onClick={() => showModal(image[1])} src={`/img/Assets/${image[1]}`} />
         </Col>
         <Col span={12}>
-          <SubImageCover onClick={() => showModal(image[1])} src={`/img/Assets/${image[2]}`} />
+          <SubImageCover onClick={() => showModal(image[2])} src={`/img/Assets/${image[2]}`} />
         </Col>
       </Row>
       <Modal

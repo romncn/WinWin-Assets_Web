@@ -37,7 +37,7 @@ const Home: React.FC = () => {
         onChangeAssetType={onChangeAssetType}
         assets={assets}
       />
-      <Portfolio />
+      {/* <Portfolio /> */}
       <Vision />
       <Service />
     </LayoutWithBG>
