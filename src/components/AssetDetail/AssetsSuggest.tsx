@@ -3,7 +3,18 @@ import { Link } from "react-router-dom";
 import { Row, Col } from "antd";
 import { Container } from "../components/Grid";
 import AssetCard from "../components/AssetCard";
+import styled from "styled-components";
 
+const SeeAllAssets = styled.div`
+  padding-top: 30px;
+  text-align: right;
+  a {
+    &:hover {
+      border-radius: 8px;
+      background-color: #F7F7F7;
+    }
+  }
+`;
 type AssetsProps = {
   assets: Array<{
     id: string;
@@ -42,9 +53,11 @@ const AssetsSuggest: React.FunctionComponent<AssetsProps> = ({
             );
           })}
         </Row>
-        <div style={{ paddingTop: "30px", textAlign: "right" }}>
-          <h2>{"ดูทั้งหมด >>"}</h2>
-        </div>
+        <SeeAllAssets>
+              <h1>
+                <Link to="/assets" style={{color:"#404143"}}>{"ดูทั้งหมด >>"}</Link>
+              </h1>
+            </SeeAllAssets>
       </Container>
     </div>
   );

@@ -12,8 +12,10 @@ import LayoutWithBG from "../components/components/LayoutWithBG";
 const ImageCover = styled.img`
   display: inline-flex;
   height: 250px;
+  width: 200px;
   border-radius: 8px;
   object-fit: cover;
+  margin: 0 20px;
 `;
 const PersonalDetail = styled.span`
   padding: 10px 10px 10px 10px;
@@ -47,7 +49,7 @@ const AboutUs: React.FC = () => {
           </h1>
           <div style={{ textAlign: "center", paddingTop: "20px" }}>
             <Person>
-              <ImageCover src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />
+              <ImageCover src="/img/winwin_team-1.PNG" />
               <PersonalDetail style={{ textAlign: "left" }}>
                 <h2>
                   <b>นาย เสริมชัย</b>
@@ -69,7 +71,7 @@ const AboutUs: React.FC = () => {
                 </h2>
                 <h3>กรรมการบริษัท, ผู้จัดการฝ่ายบริหาร</h3>
               </PersonalDetail>
-              <ImageCover src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />
+              <ImageCover src="/img/winwin_team-2.PNG" />
             </Person>
             <TextOther>
               <h1>
