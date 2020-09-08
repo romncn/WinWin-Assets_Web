@@ -82,12 +82,23 @@ const Navbar: React.FC = () => {
   const [page, setPage] = useState<string>("");
 
   useEffect(() => {
-    setPage(
-      location.pathname.split("/")[2] === undefined
-        ? location.pathname.split("/")[1]
-        : location.pathname.split("/")[2]
-    );
+    let checkHomepage = location.pathname.split("/")[1] === "";
+    if (checkHomepage) {
+      setPage("home");
+    } else {
+      setPage(
+        location.pathname.split("/")[2] === undefined
+          ? location.pathname.split("/")[1]
+          : location.pathname.split("/")[2]
+      );
+    }
   }, []);
+
+  useEffect(() => {
+    if (page === "homepage") {
+      window.location.reload(false);
+    }
+  }, [page]);
 
   if (page === "") {
     return <div></div>;
@@ -97,7 +108,12 @@ const Navbar: React.FC = () => {
         <Container>
           <Bar>
             <Logo>
-              <Link to="/" onClick={() => setPage("")}>
+              <Link
+                to="/"
+                onClick={() => {
+                  setPage("homepage");
+                }}
+              >
                 <img src="/img/Logo.svg" width="40px" height="40px" />
                 <h4
                   style={{
@@ -119,32 +135,88 @@ const Navbar: React.FC = () => {
                 style={{ height: "50px" }}
               >
                 <Menu.Item key="whatis">
-                  <Link to="/whatis">รู้จัก WIN WIN</Link>
+                  <Link
+                    to="/whatis"
+                    onClick={() => {
+                      setPage("whatis");
+                    }}
+                  >
+                    รู้จัก WIN WIN
+                  </Link>
                 </Menu.Item>
                 <SubMenu key="2" icon={<CaretDownOutlined />} title="โครงการ">
                   <SubMenuItem key="house">
-                    <Link to="/asset/house">บ้านเดี่ยว</Link>
+                    <Link
+                      to="/asset/house"
+                      onClick={() => {
+                        setPage("house");
+                      }}
+                    >
+                      บ้านเดี่ยว
+                    </Link>
                   </SubMenuItem>
                   <SubMenuItem key="townhome">
-                    <Link to="/asset/townhome">ทาวน์โฮม</Link>
+                    <Link
+                      to="/asset/townhome"
+                      onClick={() => {
+                        setPage("townhome");
+                      }}
+                    >
+                      ทาวน์โฮม
+                    </Link>
                   </SubMenuItem>
                   <SubMenuItem key="condiminium">
-                    <Link to="/asset/condominium">คอนโด</Link>
+                    <Link
+                      to="/asset/condominium"
+                      onClick={() => {
+                        setPage("condominium");
+                      }}
+                    >
+                      คอนโด
+                    </Link>
                   </SubMenuItem>
                 </SubMenu>
                 <SubMenu key="3" icon={<CaretDownOutlined />} title="บริการ">
                   <SubMenuItem key="service">
-                    <Link to="/service">บริการจาก WINWIN</Link>
+                    <Link
+                      to="/service"
+                      onClick={() => {
+                        setPage("service");
+                      }}
+                    >
+                      บริการจาก WINWIN
+                    </Link>
                   </SubMenuItem>
                   <SubMenuItem key="standard-service">
-                    <Link to="/standard-service">มาตรฐานการบริการ</Link>
+                    <Link
+                      to="/standard-service"
+                      onClick={() => {
+                        setPage("standard-service");
+                      }}
+                    >
+                      มาตรฐานการบริการ
+                    </Link>
                   </SubMenuItem>
                 </SubMenu>
                 <Menu.Item key="aboutus">
-                  <Link to="/aboutus">คณะผู้บริหาร</Link>
+                  <Link
+                    to="/aboutus"
+                    onClick={() => {
+                      setPage("aboutus");
+                    }}
+                  >
+                    คณะผู้บริหาร
+                  </Link>
                 </Menu.Item>
                 <Menu.Item key="vision">
-                  <Link to="/vision">วิสัยทัศน์</Link>
+                  <Link
+                    to="/vision"
+                    onClick={() => {
+                      setPage("vision");
+                    }}
+                  >
+                    วิสัยทัศน์
+                  </Link>
                 </Menu.Item>
               </Menu>
             </MenuBar>
