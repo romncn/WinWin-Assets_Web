@@ -4,6 +4,18 @@ import { Container } from "../components/Grid";
 import { Row, Col } from "antd";
 import AssetTypeBar from "../components/AssetTypeBar";
 import AssetCard from "../components/AssetCard";
+import styled from "styled-components";
+
+const SeeAllAssets = styled.div`
+  padding-top: 30px;
+  text-align: right;
+  a {
+    &:hover {
+      border-radius: 8px;
+      background-color: #F7F7F7;
+    }
+  }
+`;
 
 type AssetTypeProps = {
   selected: string;
@@ -44,11 +56,11 @@ const ShowAssets: React.FC<AssetTypeProps> = React.memo(
                 );
               })}
             </Row>
-            <div style={{ paddingTop: "30px", textAlign: "right" }}>
+            <SeeAllAssets>
               <h1>
                 <Link to="/assets" style={{color:"#404143"}}>{"ดูทั้งหมด >>"}</Link>
               </h1>
-            </div>
+            </SeeAllAssets>
           </div>
         </Container>
       </div>
