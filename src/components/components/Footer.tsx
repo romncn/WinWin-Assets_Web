@@ -24,7 +24,7 @@ const Wrapper = styled.div`
         padding: 0px 0px 20px 0px;
     }
     .contact {
-        padding: 15px 0px 15px 0px;
+        padding: 10px 0px 15px 0px;
         a {
             color: white;
         }
@@ -43,8 +43,8 @@ const Footer: React.FC = () => {
                 <BodyPage>
                     <div className="content">
                         <h3>บริษัท วินวิน แอสเสท จำกัด</h3>
-                        <Row style={{ paddingTop: "30px", paddingBottom: "30px" }}>
-                            <Col span={24} lg={6}>
+                        <Row style={{ paddingTop: "30px", paddingBottom: "30px" }} gutter={[16, 16]}>
+                            <Col span={24} lg={6} sm={12}>
                                 <h4>รู้จัก WINWIN</h4>
                                 <p />
                                 <Link to="/whatis">
@@ -54,7 +54,7 @@ const Footer: React.FC = () => {
                                     <h5>ผลงานที่ผ่านมา</h5>
                                 </Link>
                             </Col>
-                            <Col span={24} lg={6}>
+                            <Col span={24} lg={6} sm={12}>
                                 <h4>โครงการ</h4>
                                 <p />
                                 <Link to="/asset/house">
@@ -70,7 +70,7 @@ const Footer: React.FC = () => {
                                     <h5>โครงการทั้งหมด</h5>
                                 </Link>
                             </Col>
-                            <Col span={24} lg={6}>
+                            <Col span={24} lg={6} sm={12}>
                                 <h4>บริการ</h4>
                                 <p />
                                 <Link to="/service">
@@ -80,7 +80,7 @@ const Footer: React.FC = () => {
                                     <h5>มาตรฐานการบริการ</h5>
                                 </Link>
                             </Col>
-                            <Col span={24} lg={6}>
+                            <Col span={24} lg={6} sm={12}>
                                 <h4>อื่นๆ</h4>
                                 <p />
                                 <Link to="aboutus">

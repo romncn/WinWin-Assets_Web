@@ -3,7 +3,7 @@
     "public": "build",
     "rewrites" : [{
       "source" : "**",
-      "destination" : "index.html"
+      "destination" : "/index.html"
     }],
     "ignore": [
       "firebase.json",

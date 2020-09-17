@@ -54,7 +54,7 @@ const AssetCard: React.FunctionComponent<AssetsProps> = ({ asset }) => {
     <div>
       <CardAsset
         cover={
-          <ImageCover alt="example" src={`/img/assets/${asset.image[0]}`} />
+          <ImageCover alt="example" src={`/img/Assets/${asset.image[0]}`} />
         }
       >
         <div>

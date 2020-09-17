@@ -30,7 +30,7 @@ const Home: React.FC = () => {
   }, [assetType]);
   return (
     <LayoutWithBG>
-      <Carousel ads={Ads} />
+      {/* <Carousel ads={Ads} /> */}
       <Welcome />
       <ShowAssets
         selected={assetType}
